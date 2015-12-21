@@ -19,13 +19,16 @@
     
     
     //设置富文本的第一种方法
-//    [self firstWay];
+    [self firstWay];
 
     //第二种
 //    [self secondWay];
     
     //第三种
-    [self thirdWay];
+//    [self thirdWay];
+    
+    //第四种
+//      [self forthWay];
 }
 
 - (void)firstWay
@@ -44,7 +47,7 @@
     NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc]initWithString:str1];
     
     //开始编辑
-    [attribute beginEditing];
+//    [attribute beginEditing];
     
     [attribute addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(0, 6)];
     [attribute addAttribute:NSFontAttributeName value:@{NSStrikethroughStyleAttributeName : @(NSUnderlineStyleThick)} range:NSMakeRange(7, 5)];
@@ -54,9 +57,10 @@
     [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 6)];
     [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor] range:NSMakeRange(7, 5)];
     
-    [attribute endEditing];
+//    [attribute endEditing];
     
     [button setAttributedTitle:attribute forState:UIControlStateHighlighted];
+
  
 }
 
@@ -88,6 +92,25 @@
     
     label.attributedText = [[NSAttributedString alloc]initWithString:@"Don't give up" attributes:dict1];
     
+}
+
+- (void)forthWay
+{
+    UILabel *label = [[UILabel alloc]init];
+    
+    label.frame = CGRectMake(100, 100, 200, 200);
+    
+    [self.view addSubview:label];
+    
+    NSShadow *shadow = [[NSShadow alloc]init];
+    shadow.shadowColor = [UIColor blueColor];
+    shadow.shadowOffset = CGSizeMake(20, 20);
+    
+//    NSDictionary *dict1 = @{NSFontAttributeName: [UIFont fontWithName:@"Zapfino" size:30], NSStrikethroughStyleAttributeName : @(NSUnderlineStyleDouble), NSStrikethroughColorAttributeName: [UIColor redColor], NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle), NSShadowAttributeName : shadow, NSVerticalGlyphFormAttributeName : @(0), NSObliquenessAttributeName : @1 };
+    
+    NSDictionary *dict1 = @{NSFontAttributeName: [UIFont fontWithName:@"Zapfino" size:30], NSShadowAttributeName : shadow };
+
+    label.attributedText = [[NSAttributedString alloc]initWithString:@"Don't give up" attributes:dict1];
 }
 
 
